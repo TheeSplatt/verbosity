@@ -1,3 +1,5 @@
+hi this is verbosity. thank you windows81
+
 <h1 align="center"><img src="/Assets/Logo.png" height="20px"/> Rōblox: Freedom Distribution <img src="/Assets/Logo.png" height="20px"/></h1>
 
 <p align="right">

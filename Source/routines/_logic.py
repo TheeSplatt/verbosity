@@ -257,9 +257,10 @@ class bin_entry(popen_entry, loggable_entry):
             self.web_host, self.web_port,
         )
 
-    def get_versioned_path(self, *paths: str) -> str:
+    def get_versioned_path(self, *paths: str, adjust_for_wine: bool = False) -> str:
         return util.resource.retr_rōblox_full_path(
             self.retr_version(), self.BIN_SUBTYPE, *paths,
+            adjust_for_wine=adjust_for_wine,
         )
 
     @functools.cache
@@ -272,7 +273,7 @@ class bin_entry(popen_entry, loggable_entry):
         '''
         path = self.get_versioned_path('AppSettings.xml')
         app_base_url = self.get_app_base_url()
-        with open(path, 'w', encoding='utf-8') as f:
+        with open(path, 'w', encoding='utf-8', newline='\r\n') as f:
             f.write(textwrap.dedent(f'''\
                 <?xml version="1.0" encoding="UTF-8"?>
                 <Settings>
